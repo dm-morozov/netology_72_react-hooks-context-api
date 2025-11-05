@@ -4,6 +4,7 @@ import Header from './components/Header/Header'
 import ThemeButton from './components/ThemeButton/ThemeButton'
 import { LanguageContext, ThemeContext } from './context/ThemeContext'
 import { UserContext } from './context/UserContext'
+import List from './components/List/List'
 
 type Theme = 'light' | 'dark'
 type Language = 'ru' | 'en'
@@ -48,6 +49,7 @@ function App() {
           <div style={styleTheme(theme)}>
             <Header />
             <ThemeButton toggle={toggleTheme} toggleLanguage={toggleLang} />
+            <List />
           </div>
         </UserContext.Provider>
       </LanguageContext.Provider>

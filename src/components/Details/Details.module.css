@@ -1,0 +1,14 @@
+/* Details.module.css */
+.details {
+  padding: 20px;
+  border: 1px solid #eee;
+}
+.avatar {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+}
+.loading,
+.error {
+  color: #666;
+}

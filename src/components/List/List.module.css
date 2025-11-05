@@ -1,0 +1,10 @@
+/* List.module.css */
+.container {
+  display: flex;
+  gap: 20px;
+}
+.list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
