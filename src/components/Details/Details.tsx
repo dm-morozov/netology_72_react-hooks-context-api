@@ -25,10 +25,14 @@ const Details: FC<DetailsProps> = ({ userId }) => {
   useEffect(() => {
     setLoading(true)
     setError(null)
+
+    const controller = new AbortController()
+
     const fetchDetails = async () => {
       try {
         const responce = await fetch(
-          `https://raw.githubusercontent.com/netology-code/ra16-homeworks/master/hooks-context/use-effect/data/${userId}.json`
+          `https://raw.githubusercontent.com/netology-code/ra16-homeworks/master/hooks-context/use-effect/data/${userId}.json`,
+          { signal: controller.signal }
         )
         if (!responce.ok) {
           throw new Error('Не удалось загрузить')
@@ -43,9 +47,15 @@ const Details: FC<DetailsProps> = ({ userId }) => {
             setLoading(false)
           }
         }
+      } finally {
+        setLoading(false)
       }
     }
     fetchDetails()
+
+    return () => {
+      controller.abort()
+    }
   }, [userId])
 
   if (loading) return <div className={style.loading}>Загрузка</div>
@@ -54,7 +64,7 @@ const Details: FC<DetailsProps> = ({ userId }) => {
   if (!details) return null
 
   return (
-    <div className={style.details}>
+    <div key={details.id} className={style.details}>
       <img src={details.avatar} alt={details.name} className={style.avatar} />
       <h2>{details.name}</h2>
       <p>Город: {details.details.city}</p>

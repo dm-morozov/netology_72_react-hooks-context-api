@@ -34,7 +34,7 @@ const List = () => {
           />
         ))}
       </ul>
-      {selectedId && <Details userId={selectedId} />}
+      {selectedId && <Details key={selectedId} userId={selectedId} />}
     </div>
   )
 }
