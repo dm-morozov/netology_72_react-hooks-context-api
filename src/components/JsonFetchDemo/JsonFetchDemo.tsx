@@ -2,19 +2,39 @@ import { useState } from 'react'
 import useJsonFetch from '../../hooks/useJsonFetch'
 
 const JsonFetchDemo = () => {
-  const [url, setUrl] = useState('http://localhost:7070/data')
+  const [url, setUrl] = useState(
+    'https://netology-72-react-hooks-context-api.onrender.com/error'
+  )
   const [data, loading, error] = useJsonFetch<{ status: string }>(url)
 
   return (
     <div>
       <h2>JsonFetchDemo - test</h2>
-      <button onClick={() => setUrl('http://localhost:7070/data')}>
+      <button
+        onClick={() =>
+          setUrl(
+            'https://netology-72-react-hooks-context-api.onrender.com/data'
+          )
+        }
+      >
         Загрузить данные
       </button>
-      <button onClick={() => setUrl('http://localhost:7070/error')}>
+      <button
+        onClick={() =>
+          setUrl(
+            'https://netology-72-react-hooks-context-api.onrender.com/error'
+          )
+        }
+      >
         Ошибка
       </button>
-      <button onClick={() => setUrl('http://localhost:7070/loading')}>
+      <button
+        onClick={() =>
+          setUrl(
+            'https://netology-72-react-hooks-context-api.onrender.com/loading'
+          )
+        }
+      >
         Долгая загрузка
       </button>
       <div style={{ marginTop: 20 }}>

@@ -1,4 +1,4 @@
-import { useEffect, useState, type FC } from 'react'
+import { useEffect, useState } from 'react'
 
 const useJsonFetch = <T = unknown,>(
   url: string,
