@@ -5,6 +5,7 @@ import ThemeButton from './components/ThemeButton/ThemeButton'
 import { LanguageContext, ThemeContext } from './context/ThemeContext'
 import { UserContext } from './context/UserContext'
 import List from './components/List/List'
+import JsonFetchDemo from './components/JsonFetchDemo/JsonFetchDemo'
 
 type Theme = 'light' | 'dark'
 type Language = 'ru' | 'en'
@@ -50,6 +51,7 @@ function App() {
             <Header />
             <ThemeButton toggle={toggleTheme} toggleLanguage={toggleLang} />
             <List />
+            <JsonFetchDemo />
           </div>
         </UserContext.Provider>
       </LanguageContext.Provider>
